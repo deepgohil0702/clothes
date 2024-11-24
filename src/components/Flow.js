@@ -3,19 +3,19 @@ import React, { useState, useEffect } from "react";
 const Flow = () => {
   const sections = [
     {
-      title: "Section",
-      description: "This is the description for Section 1.",
-      image: "https://via.placeholder.com/1200x600/FF5733/FFFFFF?text=Section+1",
+      title: "Collection",
+      description: "Web Scraping",
+      image: "https://myvercell.s3.ap-south-1.amazonaws.com/step1.jpg",
     },
     {
-      title: "Section",
-      description: "This is the description for Section 2.",
-      image: "https://via.placeholder.com/1200x600/33FF57/FFFFFF?text=Section+2",
+      title: "Generation",
+      description: "Leveraging Llama 3.1",
+      image: "https://myvercell.s3.ap-south-1.amazonaws.com/step2.png",
     },
     {
-      title: "Section",
-      description: "This is the description for Section 3.",
-      image: "https://via.placeholder.com/1200x600/5733FF/FFFFFF?text=Section+3",
+      title: "Optimization",
+      description: "Performance Tracking and Continuous Improvement",
+      image: "https://myvercell.s3.ap-south-1.amazonaws.com/step3.png",
     },
   ];
 
@@ -36,18 +36,22 @@ const Flow = () => {
         <img
           src={sections[activeSection].image}
           alt={sections[activeSection].title}
-          className="w-full max-w-4xl rounded-lg shadow-lg transform transition duration-500 hover:scale-105 md:h-auto h-[60vh] object-cover"
+          className="w-full max-w-4xl rounded-lg shadow-lg transform transition duration-500 hover:scale-105 
+                     sm:h-60 md:h-[400px] lg:h-[500px] object-cover"
         />
       </div>
 
       {/* Navigation and Content */}
-      <div className="mt-8">
-        <div className="flex justify-center space-x-4">
+      <div className="mt-8 sm:mt-12 md:mt-16">
+        {/* Buttons Section */}
+        <div
+          className="flex flex-wrap sm:flex-col justify-center items-center space-x-4 sm:space-x-0 sm:space-y-4"
+        >
           {sections.map((section, index) => (
             <button
               key={index}
               onClick={() => setActiveSection(index)}
-              className={`px-4 py-2 rounded-lg ${
+              className={`px-4 py-2 rounded-lg text-center ${
                 index === activeSection
                   ? "bg-black text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -59,7 +63,7 @@ const Flow = () => {
         </div>
 
         {/* Section Description */}
-        <div className="mt-4 text-center text-gray-700">
+        <div className="mt-6 sm:mt-8 text-center text-gray-700">
           <p>{sections[activeSection].description}</p>
         </div>
       </div>
