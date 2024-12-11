@@ -138,6 +138,8 @@ const HomePage = () => {
 
 
 
+
+
       {/* Features Section */}
       <section className="py-12 px-6 md:py-20 md:px-8 bg-black">
   <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8">
