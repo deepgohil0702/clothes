@@ -1,0 +1,76 @@
+@keyframes revealText {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    50% {
+      clip-path: inset(0 30% 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  
+  .main-section {
+    background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .main-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .line {
+    display: inline-block;
+    overflow: hidden;
+    animation: revealText 4s ease-in-out forwards;
+  }
+  
+  .line:nth-child(1) {
+    animation-delay: 0s; /* First line appears immediately */
+  }
+  
+  .line:nth-child(2) {
+    animation-delay: 2s; /* Second line appears after 2s */
+  }
+  
+  .main-paragraph {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 2rem;
+    padding: 0 1rem; /* Add padding for mobile responsiveness */
+  }
+  
+  .button-container {
+    margin-top: 2rem;
+  }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 768px) {
+    .main-title {
+      font-size: 2rem; /* Adjust text size on mobile */
+      margin-bottom: 1rem;
+        padding: 2rem; /* Add top margin for mobile */
+    }
+  
+    .main-paragraph {
+      font-size: 1rem; /* Adjust paragraph size for better readability */
+      margin-bottom: 1.5rem;
+    }
+  
+    .button-container {
+      margin-top: 1.5rem;
+    }
+  
+    /* Disable animation on mobile */
+    .line {
+      animation: none; /* Remove animation on smaller screens */
+    }
+  }
+  

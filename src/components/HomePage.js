@@ -1,13 +1,9 @@
-
-
-
-
-
-
 import React, { useState } from "react";
 import Flow from "./Flow";
 import Banner from "./Banner";
 import { useNavigate } from "react-router-dom";
+import './HomePage.css';
+
 
 const HomePage = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -113,50 +109,64 @@ const HomePage = () => {
         </nav>
       )}
 
-      {/* Main Content */}
-      <main className="text-center py-12 px-6 md:py-20 md:px-8">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
-        Revolutionize Outreach with AI-Powered Cold Emails
-        </h1>
-        <p className="text-lg md:text-xl text-gray-500 mb-8">
-        Streamline sales outreach with AI-driven, tailored cold emails. Powered by Llama 3.1, LangChain, and ChromaDB, our platform crafts personalized emails to engage clients effectively. Boost efficiency, enhance engagement, and close deals faster with cutting-edge automation
-        </p>
-        <div className="flex flex-col space-y-4 md:flex-row md:justify-center md:space-y-0 md:space-x-4">
-     
-          <button 
-           onClick={() => navigate("/chat")}
-          className="border border-gray-700 text-gray-700 px-6 py-3 rounded hover:bg-gray-100 transition">
-            Try now
-          </button>
-        </div>
-      </main>
+<main className="main-section">
+  <h1 className="main-title">
+    <span className="line">Revolutionize Outreach with AI-Powered Cold Emails</span><br />
+   
+  </h1>
+  <p className="main-paragraph">
+    Streamline sales outreach with AI-driven, tailored cold emails. Powered by Llama 3.1, LangChain, and ChromaDB, our platform crafts personalized emails to engage clients effectively. Boost efficiency, enhance engagement, and close deals faster with cutting-edge automation.
+  </p>
+  <div className="button-container">
+    <button
+      onClick={() => navigate('/chat')}
+      className="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition"
+    >
+      Try now
+    </button>
+  </div>
+</main>
+
+
+
+
+
 
       {/* Features Section */}
-      <section className="py-12 px-6 md:py-20 md:px-8 bg-gray-100">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-          Key Features
-        </h2>
-        <div className="grid gap-8 md:grid-cols-3 text-center">
-          <div>
-            <h3 className="text-xl font-semibold mb-2">AI-Powered Emails</h3>
-            <p className="text-gray-500">
-              Generate personalized cold emails using Llama 3.1 and LangChain for efficient outreach.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Smart Data Integration</h3>
-            <p className="text-gray-500">
-              Leverage ChromaDB to connect job requirements with your portfolio for tailored responses.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Real-Time Insights</h3>
-            <p className="text-gray-500">
-              Automatically scrape job postings to craft dynamic, targeted emails.
-            </p>
-          </div>
-        </div>
-      </section>
+      <section className="py-12 px-6 md:py-20 md:px-8 bg-black">
+  <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8">
+    Key Features
+  </h2>
+  <div className="grid gap-8 md:grid-cols-3 text-center">
+    <div>
+      <h3 className="text-xl font-semibold text-white mb-2">
+        AI-Powered Emails
+      </h3>
+      <p className="text-gray-400">
+        Generate personalized cold emails using Llama 3.1 and LangChain for efficient outreach.
+      </p>
+    </div>
+    <div>
+      <h3 className="text-xl font-semibold text-white mb-2">
+        Smart Data Integration
+      </h3>
+      <p className="text-gray-400">
+        Leverage ChromaDB to connect job requirements with your portfolio for tailored responses.
+      </p>
+    </div>
+    <div>
+      <h3 className="text-xl font-semibold text-white mb-2">
+        Real-Time Insights
+      </h3>
+      <p className="text-gray-400">
+        Automatically scrape job postings to craft dynamic, targeted emails.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
       <Flow />
       <Banner />
       {/* Benefits Section */}

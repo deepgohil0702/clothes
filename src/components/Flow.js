@@ -1,71 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Flow = () => {
-  const sections = [
+  const cards = [
     {
-      title: "Collection",
-      description: "Web Scraping",
-      image: "https://myvercell.s3.ap-south-1.amazonaws.com/step1.jpg",
+      title: "Data Collection and Processing",
+      date: "Scrape jobs",
+      image: "https://myvercell.s3.ap-south-1.amazonaws.com/1.jpg", // Replace with actual path
     },
     {
-      title: "Generation",
-      description: "Leveraging Llama 3.1",
-      image: "https://myvercell.s3.ap-south-1.amazonaws.com/step2.png",
+      title: "personalized cold emails",
+      date: "Use Llama",
+      image: "https://myvercell.s3.ap-south-1.amazonaws.com/2.jpg", // Replace with actual path
     },
     {
-      title: "Optimization",
-      description: "Performance Tracking and Continuous Improvement",
-      image: "https://myvercell.s3.ap-south-1.amazonaws.com/step3.png",
+      title: "Monitoring, Analysis",
+      date: "Track emails",
+      image: "https://myvercell.s3.ap-south-1.amazonaws.com/3.jpg",// Replace with actual path
     },
   ];
 
-  const [activeSection, setActiveSection] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveSection((prevSection) => (prevSection + 1) % sections.length);
-    }, 3000); // Change section every 3 seconds
-
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, []);
-
   return (
-    <div className="py-12 px-6 md:py-20 md:px-8">
-      {/* Image Section */}
-      <div className="flex justify-center">
-        <img
-          src={sections[activeSection].image}
-          alt={sections[activeSection].title}
-          className="w-full max-w-4xl rounded-lg shadow-lg transform transition duration-500 hover:scale-105 
-                     sm:h-60 md:h-[400px] lg:h-[500px] object-cover"
-        />
-      </div>
-
-      {/* Navigation and Content */}
-      <div className="mt-8 sm:mt-12 md:mt-16">
-        {/* Buttons Section */}
-        <div
-          className="flex flex-wrap sm:flex-col justify-center items-center space-x-4 sm:space-x-0 sm:space-y-4"
-        >
-          {sections.map((section, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveSection(index)}
-              className={`px-4 py-2 rounded-lg text-center ${
-                index === activeSection
-                  ? "bg-black text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-              } transition`}
-            >
-              {section.title}
-            </button>
-          ))}
-        </div>
-
-        {/* Section Description */}
-        <div className="mt-6 sm:mt-8 text-center text-gray-700">
-          <p>{sections[activeSection].description}</p>
-        </div>
+    <div className="py-12 px-6 md:px-16">
+      <h2 className="text-black text-2xl font-bold mb-8">For Developers</h2>
+      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="relative overflow-hidden rounded-lg shadow-lg bg-gray-800 group h-[400px]"
+          >
+            <img
+              src={card.image}
+              alt={card.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 p-4 flex flex-col justify-end">
+              <p className={`text-sm ${index === 1 ? "text-black" : "text-white"}`}>{card.date}</p>
+              <h3 className={`text-lg font-semibold mt-2 ${index === 1 ? "text-black" : "text-white"}`}>
+                {card.title}
+              </h3>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
