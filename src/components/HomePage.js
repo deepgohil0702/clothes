@@ -35,6 +35,12 @@ const HomePage = () => {
           <a className="text-gray-700 hover:text-black transition" href="#">
             Docs
           </a>
+          <a onClick={() => navigate("/login")} className="cursor-pointer text-gray-700 hover:text-black transition">
+            Login
+          </a>
+          <a onClick={() => navigate("/signup")} className="cursor-pointer text-gray-700 hover:text-black transition">
+            Signup
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}
