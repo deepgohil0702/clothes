@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Home, User, Settings, Mail, ArrowUpFromLine, AudioLines, MessageSquareMore } from 'lucide-react';
 import ChatTab from './ChatTab'; // Import the tab components
 import ProfileTab from './ProfileTab';
-import SettingsTab from './SettingsTab';
-import ContactTab from './ContactTab';
+import MailTab from './MailTab';
+import AITab from './AiTab';
 
 export default function BottomNavigation() {
   const [activeTab, setActiveTab] = useState('Chat');
 
   const TABS = [
     { label: 'Chat', icon: <MessageSquareMore className="h-6 w-6" />, component: <ChatTab/> },
-    { label: 'AI', icon: <AudioLines className="h-6 w-6" />, component: <div>Audio Tab Content</div> },
-    { label: 'Mail', icon: <Mail className="h-6 w-6" />, component: <div>Mail Tab Content</div> },
+    { label: 'AI', icon: <AudioLines className="h-6 w-6" />, component: <AITab/> },
+    { label: 'Mail', icon: <Mail className="h-6 w-6" />, component: <MailTab/> },
     { label: 'Profile', icon: <User className="h-6 w-6" />, component: <ProfileTab /> },
   ];
 
