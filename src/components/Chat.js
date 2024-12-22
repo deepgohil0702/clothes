@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import { Home, User, Settings, PhoneCall } from 'lucide-react';
-import HomeTab from './HomeTab'; // Import the tab components
+import { Home, User, Settings, Mail, ArrowUpFromLine, AudioLines, MessageSquareMore } from 'lucide-react';
+import ChatTab from './ChatTab'; // Import the tab components
 import ProfileTab from './ProfileTab';
 import SettingsTab from './SettingsTab';
 import ContactTab from './ContactTab';
 
 export default function BottomNavigation() {
-  const [activeTab, setActiveTab] = useState('Home');
+  const [activeTab, setActiveTab] = useState('Chat');
 
   const TABS = [
-    { label: 'Home', icon: <Home className="h-6 w-6" />, component: <HomeTab /> },
+    { label: 'Chat', icon: <MessageSquareMore className="h-6 w-6" />, component: <ChatTab/> },
+    { label: 'AI', icon: <AudioLines className="h-6 w-6" />, component: <div>Audio Tab Content</div> },
+    { label: 'Mail', icon: <Mail className="h-6 w-6" />, component: <div>Mail Tab Content</div> },
     { label: 'Profile', icon: <User className="h-6 w-6" />, component: <ProfileTab /> },
-    { label: 'Settings', icon: <Settings className="h-6 w-6" />, component: <SettingsTab /> },
-    { label: 'Contact', icon: <PhoneCall className="h-6 w-6" />, component: <ContactTab /> },
   ];
+
+  // { label: 'Home', icon: <Home className="h-6 w-6" />, component: <HomeTab /> },
+  // { label: 'Profile', icon: <User className="h-6 w-6" />, component: <ProfileTab /> },
+  // { label: 'Settings', icon: <Settings className="h-6 w-6" />, component: <SettingsTab /> },
+  // { label: 'Contact', icon: <PhoneCall className="h-6 w-6" />, component: <ContactTab /> },
 
   return (
     <div className="relative">
