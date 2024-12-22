@@ -2,9 +2,9 @@ import React from 'react';
 
 const HomeSection = () => {
   return (
-    <section className="flex items-center justify-between py-16 px-6 bg-gray-50">
+    <section className="flex flex-col md:flex-row items-center justify-between py-16 px-6 bg-gray-50">
       {/* Left Side (Text and Buttons) */}
-      <div className="max-w-lg">
+      <div className="max-w-lg md:ml-6">
         <h2 className="text-4xl font-bold text-gray-900 mb-4">
           Transform Your Outreach Today
         </h2>
@@ -22,9 +22,9 @@ const HomeSection = () => {
       </div>
 
       {/* Right Side (Image) */}
-      <div className="w-1/2">
+      <div className="w-full md:w-1/3 hidden md:block">
         <img
-          src="https://via.placeholder.com/600x400"
+          src="https://myvercell.s3.ap-south-1.amazonaws.com/last+img.jpg"
           alt="Outreach Image"
           className="w-full h-auto rounded-lg shadow-xl object-cover"
         />
