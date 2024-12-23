@@ -6,6 +6,7 @@ export default function ChatTab() {
     { id: 2, type: 'user', content: 'Can you tell me about GPT?' },
   ]);
   const [newMessage, setNewMessage] = useState('');
+  const [botTyping, setBotTyping] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -13,14 +14,40 @@ export default function ChatTab() {
     if (newMessage.trim() !== '') {
       setMessages([...messages, { id: Date.now(), type: 'user', content: newMessage }]);
       setNewMessage('');
-      // Simulate bot response
+
+      // Simulate bot typing animation
+      setBotTyping(true);
       setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { id: Date.now() + 1, type: 'bot', content: 'Sure! GPT stands for Generative Pre-trained Transformer...' },
-        ]);
+        simulateBotResponse("Sure! GPT stands for Generative Pre-trained Transformer...");
       }, 1000);
     }
+  };
+
+  const simulateBotResponse = (fullText) => {
+    setBotTyping(false);
+
+    // Add a placeholder for the bot's response
+    const botMessageId = Date.now();
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { id: botMessageId, type: 'bot', content: '' },
+    ]);
+
+    let currentText = '';
+    const typingInterval = setInterval(() => {
+      currentText += fullText[currentText.length];
+      setMessages((prevMessages) =>
+        prevMessages.map((message) =>
+          message.id === botMessageId
+            ? { ...message, content: currentText }
+            : message
+        )
+      );
+
+      if (currentText === fullText) {
+        clearInterval(typingInterval);
+      }
+    }, 50);
   };
 
   const handleKeyDown = (e) => {
@@ -44,6 +71,22 @@ export default function ChatTab() {
 
   return (
     <div className="h-full w-full flex flex-col bg-white text-black p-28">
+      <style>
+        {`
+          .blinking-cursor {
+            display: inline-block;
+            width: 1ch;
+            animation: blink 1s step-end infinite;
+          }
+
+          @keyframes blink {
+            50% {
+              opacity: 0;
+            }
+          }
+        `}
+      </style>
+
       {/* Chat Messages Area */}
       <div className="flex-grow overflow-y-auto">
         {messages.map((message) => (
@@ -54,7 +97,7 @@ export default function ChatTab() {
             }`}
           >
             <div
-              className={`max-w-xs md:max-w-md px-4 py-2 rounded-lg shadow ${
+              className={`max-w-xs md:max-w-md px-4 py-2 rounded-lg ${
                 message.type === 'user'
                   ? 'bg-black text-white'
                   : 'bg-gray-200 text-black'
@@ -67,12 +110,18 @@ export default function ChatTab() {
             </div>
           </div>
         ))}
+        {botTyping && (
+          <div className="mb-4 flex justify-start">
+            <div className="max-w-xs md:max-w-md px-4 py-2 rounded-lg bg-gray-200 text-black">
+              <span className="blinking-cursor">Typing...</span>
+            </div>
+          </div>
+        )}
         <div ref={messagesEndRef} />
       </div>
 
       {/* Input Area */}
       <div className="bg-white p-4 border-t border-gray-300 flex items-center space-x-2 mb-[30px] md:mb-[10px]">
-
         <textarea
           ref={inputRef}
           value={newMessage}
