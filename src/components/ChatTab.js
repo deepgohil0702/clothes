@@ -70,7 +70,8 @@ export default function ChatTab() {
   }, [newMessage]);
 
   return (
-    <div className="h-full w-full flex flex-col bg-white text-black p-28">
+    <div className="h-full w-full flex flex-col bg-white text-black p-10 md:p-28">
+
       <style>
         {`
           .blinking-cursor {
