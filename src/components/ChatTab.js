@@ -43,8 +43,7 @@ export default function ChatTab() {
   }, [newMessage]);
 
   return (
-    <div className="h-full w-full flex flex-col bg-white text-black p-0 md:p-28 mt-[5%] mb-[10%] md:mt-0 md:mb-16">
-
+    <div className="h-full w-full flex flex-col bg-white text-black p-15 md:p-28 mb-16">
       {/* Chat Messages Area */}
       <div className="flex-grow overflow-y-auto">
         {messages.map((message) => (
@@ -72,7 +71,8 @@ export default function ChatTab() {
       </div>
 
       {/* Input Area */}
-      <div className="bg-white p-4 border-t border-gray-300 flex items-center space-x-2">
+      <div className="bg-white p-4 border-t border-gray-300 flex items-center space-x-2 mb-[30px] md:mb-[10px]">
+
         <textarea
           ref={inputRef}
           value={newMessage}
