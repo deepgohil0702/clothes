@@ -43,7 +43,7 @@ export default function ChatTab() {
   }, [newMessage]);
 
   return (
-    <div className="h-full w-full flex flex-col bg-white text-black p-15 md:p-28 mb-16">
+    <div className="h-full w-full flex flex-col bg-white text-black p-28">
       {/* Chat Messages Area */}
       <div className="flex-grow overflow-y-auto">
         {messages.map((message) => (
