@@ -122,7 +122,7 @@ export default function ChatTab() {
       </div>
 
       {/* Input Area */}
-      <div className="bg-white p-4 border-t border-gray-300 flex items-center space-x-2 mb-[30px] md:mb-[10px]">
+      <div className="bg-white p-4 border-t border-gray-300 flex items-center space-x-2 mb-[40px] md:mb-[10px]">
         <textarea
           ref={inputRef}
           value={newMessage}
