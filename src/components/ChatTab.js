@@ -43,7 +43,8 @@ export default function ChatTab() {
   }, [newMessage]);
 
   return (
-    <div className="h-full w-full flex flex-col bg-white text-black p-28 mb-16">
+    <div className="h-full w-full flex flex-col bg-white text-black p-0 md:p-28 mt-[5%] mb-[10%] md:mt-0 md:mb-16">
+
       {/* Chat Messages Area */}
       <div className="flex-grow overflow-y-auto">
         {messages.map((message) => (
@@ -59,6 +60,9 @@ export default function ChatTab() {
                   ? 'bg-black text-white'
                   : 'bg-gray-200 text-black'
               }`}
+              style={{
+                whiteSpace: 'pre-line', // Preserve line breaks
+              }}
             >
               {message.content}
             </div>
