@@ -1,144 +1,87 @@
-import React, { useState, useRef, useEffect } from 'react';
 
-export default function ChatTab() {
-  const [messages, setMessages] = useState([
-    { id: 1, type: 'bot', content: 'Hello! How can I assist you today?' },
-    { id: 2, type: 'user', content: 'Can you tell me about GPT?' },
-  ]);
-  const [newMessage, setNewMessage] = useState('');
-  const [botTyping, setBotTyping] = useState(false);
-  const messagesEndRef = useRef(null);
-  const inputRef = useRef(null);
 
-  const handleSend = () => {
-    if (newMessage.trim() !== '') {
-      setMessages([...messages, { id: Date.now(), type: 'user', content: newMessage }]);
-      setNewMessage('');
 
-      // Simulate bot typing animation
-      setBotTyping(true);
-      setTimeout(() => {
-        simulateBotResponse("Sure! GPT stands for Generative Pre-trained Transformer...");
-      }, 1000);
-    }
-  };
 
-  const simulateBotResponse = (fullText) => {
-    setBotTyping(false);
+import React from 'react';
+import { CircleUser, ArrowUp } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
-    // Add a placeholder for the bot's response
-    const botMessageId = Date.now();
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { id: botMessageId, type: 'bot', content: '' },
-    ]);
-
-    let currentText = '';
-    const typingInterval = setInterval(() => {
-      currentText += fullText[currentText.length];
-      setMessages((prevMessages) =>
-        prevMessages.map((message) =>
-          message.id === botMessageId
-            ? { ...message, content: currentText }
-            : message
-        )
-      );
-
-      if (currentText === fullText) {
-        clearInterval(typingInterval);
-      }
-    }, 50);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault(); // Prevent line break
-      handleSend();
-    }
-  };
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
-
-  // Auto-resize textarea
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.style.height = 'auto';
-      inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
-    }
-  }, [newMessage]);
-
+const ChatTab = () => {
+   const navigate = useNavigate();
   return (
-    <div className="h-full w-full flex flex-col bg-white text-black p-10 md:p-28">
-
-      <style>
-        {`
-          .blinking-cursor {
-            display: inline-block;
-            width: 1ch;
-            animation: blink 1s step-end infinite;
-          }
-
-          @keyframes blink {
-            50% {
-              opacity: 0;
-            }
-          }
-        `}
-      </style>
-
-      {/* Chat Messages Area */}
-      <div className="flex-grow overflow-y-auto">
-        {messages.map((message) => (
-          <div
-            key={message.id}
-            className={`mb-4 flex ${
-              message.type === 'user' ? 'justify-end' : 'justify-start'
-            }`}
-          >
-            <div
-              className={`max-w-xs md:max-w-md px-4 py-2 rounded-lg ${
-                message.type === 'user'
-                  ? 'bg-black text-white'
-                  : 'bg-gray-200 text-black'
-              }`}
-              style={{
-                whiteSpace: 'pre-line', // Preserve line breaks
-              }}
-            >
-              {message.content}
+    <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="container mx-auto px-8 py-16 flex flex-wrap lg:flex-nowrap">
+        {/* Left Section */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center px-4">
+          <div className="text-center">
+            <header className="mb-8">
+              <h1 className="text-6xl font-bold">OutReach</h1>
+            </header>
+            <div className="space-y-6">
+              <h2 className="text-5xl font-normal tracking-tight leading-tight">
+                Your Mails,
+                <br />
+                amplified
+              </h2>
+              <p className="text-xl text-gray-600">
+                Privacy-first AI that helps you create in confidence.
+              </p>
+            </div>
+            <div className="mt-10 p-6 bg-gray-50 border border-gray-100 rounded-lg inline-block">
+              <div className="flex flex-col items-center gap-4">
+                <button className="w-32 rounded-full border border-gray-300 py-2 px-4 text-gray-700 hover:bg-gray-100"
+                onClick={() => navigate('/aichat')}
+                >
+                  Chat
+                </button>
+                <button className="w-32 rounded-full bg-black text-white hover:bg-black/90 py-2 px-4 flex items-center justify-center">
+                  <ArrowUp className="mr-2 h-4 w-4" />
+                  Upload
+                </button>
+              </div>
             </div>
           </div>
-        ))}
-        {botTyping && (
-          <div className="mb-4 flex justify-start">
-            <div className="max-w-xs md:max-w-md px-4 py-2 rounded-lg bg-gray-200 text-black">
-              <span className="blinking-cursor">Typing...</span>
+        </div>
+
+        {/* Right Section
+        <div className="w-full lg:w-1/2 bg-[#F9F7F4] p-8 rounded-lg shadow-lg px-4">
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 bg-[#EAE7E3] p-4 rounded-lg w-fit mx-auto lg:mx-0">
+              <CircleUser className="h-6 w-6 text-gray-700" />
+              <p className="text-gray-800">
+                Identify code optimizations and performance improvements.
+              </p>
+            </div>
+            <div className="bg-white p-4 rounded-lg">
+              <p className="text-gray-600 mb-4">
+                All set. Here's the optimized code:
+              </p>
+              <pre className="bg-[#1E1E1E] text-gray-300 p-4 rounded-lg overflow-x-auto">
+                <code>
+{`import random
+
+class Neuron:
+    def __init__(self, num_inputs):
+        self.weights = [random.random() for _ in range(num_inputs)]
+        self.bias = random.random()
+    
+    def activate(self, inputs):
+        activation = sum(w * i for w, i in zip(self.weights, inputs))
+        return 1 / (1 + math.exp(-activation))  # Sigmoid activation
+
+class NeuralNetwork:
+    def __init__(self, num_inputs, num_hidden, num_outputs):
+        self.hidden_layer = [Neuron(num_inputs) for _ in range(num_hidden)]
+`}
+                </code>
+              </pre>
             </div>
           </div>
-        )}
-        <div ref={messagesEndRef} />
-      </div>
-
-      {/* Input Area */}
-      <div className="bg-white p-4 border-t border-gray-300 flex items-center space-x-2 mb-[40px] md:mb-[10px]">
-        <textarea
-          ref={inputRef}
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Type your message..."
-          rows="1"
-          className="flex-grow border border-gray-300 rounded-lg p-2 bg-white text-black placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-300 resize-none"
-        />
-        <button
-          onClick={handleSend}
-          className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800"
-        >
-          Send
-        </button>
+        </div> */}
       </div>
     </div>
   );
-}
+};
+
+export default ChatTab;
+

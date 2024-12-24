@@ -35,6 +35,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
 import Chat from "./components/Chat";
+import HomeTab from "./components/HomeTab";
+import ChatAisection from "./components/ChatAisection";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -48,6 +50,9 @@ function App() {
 
         {/* Login Page */}
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+        <Route path="/home" element={<HomeTab />} />
+        <Route path="/aichat" element={<ChatAisection />} />
+
 
         {/* Protected Chat Route */}
         <Route
