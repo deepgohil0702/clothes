@@ -13,10 +13,10 @@ const ChatTab = () => {
     let currentIndex = 0;
 
     const typingInterval = setInterval(() => {
-      setDisplayedText((prev) => prev + fullText[currentIndex]);
-      currentIndex += 1;
-
-      if (currentIndex === fullText.length) {
+      if (currentIndex < fullText.length) {
+        setDisplayedText((prev) => prev + fullText[currentIndex]);
+        currentIndex += 1;
+      } else {
         clearInterval(typingInterval);
       }
     }, typingSpeed);
@@ -36,9 +36,7 @@ const ChatTab = () => {
             <br />
             amplified
           </h2>
-          {/* <p className="text-xl text-gray-600">
-            Privacy-first AI that helps you create in confidence.
-          </p> */}
+
           <div className="text-center text-lg font-semibold text-gray-400 mt-10">
             {displayedText}
             <span className="blinking-cursor">|</span>

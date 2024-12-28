@@ -89,19 +89,15 @@ export default function ChatAisection() {
       </style>
 
       {/* Chat Messages Area */}
-      <div className="flex-grow overflow-y-auto">
+      <div className="flex-grow overflow-y-auto mb-4">
         {messages.map((message) => (
           <div
             key={message.id}
-            className={`mb-4 flex ${
-              message.type === 'user' ? 'justify-end' : 'justify-start'
-            }`}
+            className={`mb-4 flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             <div
               className={`max-w-xs md:max-w-md px-4 py-2 rounded-lg ${
-                message.type === 'user'
-                  ? 'bg-black text-white'
-                  : 'bg-gray-200 text-black'
+                message.type === 'user' ? 'bg-black text-white' : 'bg-gray-200 text-black'
               }`}
               style={{
                 whiteSpace: 'pre-line', // Preserve line breaks
