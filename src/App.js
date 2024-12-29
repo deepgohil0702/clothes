@@ -38,6 +38,7 @@ import Chat from "./components/Chat";
 import HomeTab from "./components/HomeTab";
 import ChatAisection from "./components/ChatAisection";
 import ProtectedRoute from "./components/ProtectedRoute";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -51,6 +52,7 @@ function App() {
         {/* Login Page */}
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
         <Route path="/home" element={<HomeTab />} />
+        <Route path="/search" element={<SearchBar />} />
         <Route path="/aichat" element={<ChatAisection />} />
 
 

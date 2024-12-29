@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function ProfileTab() {
   return (
-    <div className="bg-gray-100">
-      <div className="max-w-5xl mx-auto p-4">
+    <div className="bg-gray-100 overflow-x-hidden">
+      <div className="max-w-4xl mx-auto p-4">
         {/* Profile Header */}
         <div className="bg-white rounded-lg shadow-md">
           <div className="relative">
@@ -11,16 +11,12 @@ export default function ProfileTab() {
               src="https://storage.googleapis.com/a1aa/image/2GOE2snwLVZcKpNfWg9V9IgLRLHxRfDeLAfdeDVoAUmJBf3fJA.jpg"
               alt="Background gradient"
               className="w-full h-32 rounded-t-lg"
-              width="1200"
-              height="300"
             />
             <div className="absolute top-16 left-4">
               <img
                 src="https://storage.googleapis.com/a1aa/image/O3kYJfN2KSSVVS5feCgX57ZhiTXsK7unEEgFyNnKXgkgwf9PB.jpg"
                 alt="Profile picture of Amanda Smith"
                 className="w-24 h-24 rounded-full border-4 border-white"
-                width="100"
-                height="100"
               />
             </div>
           </div>
@@ -74,32 +70,6 @@ export default function ProfileTab() {
           </div>
         </div>
 
-        {/* Employment History Section */}
-        <div className="bg-white rounded-lg shadow-md mt-4 p-4">
-          <h2 className="text-xl font-bold mb-2">Employment history</h2>
-          <div className="flex items-start space-x-4">
-            <img
-              src="https://storage.googleapis.com/a1aa/image/JkbOKuDztk7LDBtxVte6BPGuytWWL5Xf7xZLV9eHqwhdwf9PB.jpg"
-              alt="Instagram logo"
-              className="w-10 h-10 rounded-full"
-              width="40"
-              height="40"
-            />
-            <div>
-              <h3 className="text-lg font-bold">Product Designer</h3>
-              <p className="text-gray-600">Instagram - Full-time</p>
-              <p className="text-gray-600">
-                June 2020 - Present <span className="mx-2">•</span> 2 years
-              </p>
-              <p className="text-gray-600 mt-2">
-                In publishing and graphic design, Lorem ipsum is a placeholder
-                text commonly used to demonstrate the visual form of a document
-                or a typeface without relying on meaningful content.
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* People Associated Section */}
         <div className="bg-white rounded-lg shadow-md mt-4 p-4">
           <h2 className="text-xl font-bold mb-2">People Associated</h2>
@@ -134,8 +104,6 @@ export default function ProfileTab() {
                 src={person.image}
                 alt={`Profile picture of ${person.name}`}
                 className="w-10 h-10 rounded-full"
-                width="40"
-                height="40"
               />
               <div>
                 <p className="font-bold">{person.name}</p>

@@ -96,9 +96,9 @@ export default function Mailbox() {
                 <span className="text-sm text-gray-500">{email.date}</span>
               </div>
               <p className="text-sm font-medium truncate">{email.subject}</p>
-              <p className="text-sm text-gray-500 truncate">
+              {/* <p className="text-sm text-gray-500 truncate">
                 {email.preview}
-              </p>
+              </p> */}
             </div>
             <div className="flex space-x-2 ml-4">
               <button
