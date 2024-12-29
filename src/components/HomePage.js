@@ -187,9 +187,18 @@ const HomePage = () => {
 
   <div className="flex-1 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
     <div className="max-w-7xl mx-auto w-full text-center">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-500 mb-4 sm:mb-8 px-4">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-black mb-4 sm:mb-8 px-4">
       From Data to
-        <span className="text-black block sm:inline"> Deals.</span>
+      <span 
+  className="block sm:inline text-transparent bg-clip-text"
+  style={{
+    background: "linear-gradient(to right, #ff7eb3, #ff758c, #8b5ff5)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent"
+  }}
+> Deals.
+</span>
+
       </h1>
 
       <p className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-500 mb-8 sm:mb-12 px-4">
