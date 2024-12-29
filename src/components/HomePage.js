@@ -264,9 +264,10 @@ const HomePage = () => {
   const [currentQueryIndex, setCurrentQueryIndex] = useState(0);
 
   const searchQueries = [
-    "How to design a shipping app?",
-    "Best practices for React state management",
-    "Tips for scaling a database",
+    "Match portfolio with DevOps engineer requirements",
+    "Find tech companies hiring React developers",
+    "Generate personalized cold email for UI/UX position"
+    
   ];
 
   const typingSpeed = 100;
@@ -410,8 +411,7 @@ const HomePage = () => {
         </nav>
       )}
 
-      {/* Main Hero Section with Search */}
-      <main className="min-h-screen flex flex-col justify-center relative overflow-hidden">
+<main className="min-h-screen flex flex-col justify-center relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-gray-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
       
@@ -419,9 +419,9 @@ const HomePage = () => {
       <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full text-center">
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-500 mb-4 sm:mb-8 px-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-8 px-4">
             Ship Faster with
-            <span className="text-gray-900 block sm:inline"> OutReach</span>
+            <span className="text-blue-600 block sm:inline"> OutReach</span>
           </h1>
           
           {/* Subheading */}
@@ -431,8 +431,8 @@ const HomePage = () => {
 
           {/* Search Bar Integration */}
           <div className="max-w-2xl mx-auto mb-8 sm:mb-12 px-4">
-            <div className="flex flex-col sm:flex-row items-center border rounded-lg shadow-lg p-3 sm:p-4 bg-gray-50 space-y-4 sm:space-y-0">
-              {/* Icons - Hidden on mobile, shown on tablet and up */}
+            <div className="flex flex-col sm:flex-row items-center border rounded-lg shadow-lg p-3 sm:p-4 bg-gray-50">
+              {/* Desktop Icons - Hidden on mobile */}
               <div className="hidden sm:flex items-center space-x-2 mr-3">
                 <div className="flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-200">
                   <Paperclip className="text-gray-500" size={20} />
@@ -446,19 +446,47 @@ const HomePage = () => {
               </div>
 
               {/* Search Input */}
-              <input
-                type="text"
-                placeholder=""
-                value={displayedText}
-                className="w-full sm:flex-grow text-gray-700 bg-transparent focus:outline-none text-base sm:text-lg"
-                readOnly
-              />
+              <div className="w-full mb-4 sm:mb-0">
+                <input
+                  type="text"
+                  placeholder=""
+                  value={displayedText}
+                  className="w-full text-gray-700 bg-transparent focus:outline-none text-base sm:text-lg"
+                  readOnly
+                />
+              </div>
 
-              {/* Project Button and Arrow */}
-              <div className="flex items-center space-x-3">
-                <button className="flex items-center border rounded-lg px-3 sm:px-4 py-2 bg-white text-gray-500">
+              {/* Mobile Icons Row */}
+              <div className="flex sm:hidden items-center justify-between w-full px-2">
+                <div className="flex items-center space-x-3">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-lg border-2 border-gray-200">
+                    <Paperclip className="text-gray-500" size={20} />
+                  </div>
+                  <div className="flex items-center justify-center w-10 h-10 border-2 border-gray-200 rounded-lg">
+                    <DatabaseZap className="text-gray-500" size={20} />
+                  </div>
+                  <div className="flex items-center justify-center w-10 h-10 border-2 border-gray-200 rounded-lg">
+                    <Globe className="text-gray-500" size={20} />
+                  </div>
+                </div>
+
+                <div
+                  className={`flex items-center justify-center w-10 h-10 rounded-lg transition-colors ${
+                    displayedText.length > 0 ? "bg-black" : "bg-gray-200"
+                  }`}
+                >
+                  <ArrowUp 
+                    className={`${displayedText.length > 0 ? "text-white" : "text-gray-500"}`} 
+                    size={20} 
+                  />
+                </div>
+              </div>
+
+              {/* Desktop Project Button and Arrow */}
+              <div className="hidden sm:flex items-center space-x-3">
+                <button className="flex items-center border rounded-lg px-4 py-2 bg-white text-gray-500">
                   <Plus className="mr-2" size={16} />
-                  <span className="hidden sm:inline">Project</span>
+                  <span>Project</span>
                 </button>
 
                 <div
@@ -477,7 +505,7 @@ const HomePage = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black text-white rounded-lg hover:bg-black-700 transition text-base sm:text-lg font-medium">
+            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-base sm:text-lg font-medium">
               Get Started Free
             </button>
             <button className="w-full sm:w-auto px-6 sm:px-8 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition text-base sm:text-lg font-medium">
@@ -487,6 +515,7 @@ const HomePage = () => {
         </div>
       </div>
     </main>
+
 
       {/* Features Section */}
       <section className="py-12 px-6 md:py-20 md:px-8 bg-black">
