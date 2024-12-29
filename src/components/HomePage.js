@@ -1,13 +1,44 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Paperclip, Plus, ArrowUp, DatabaseZap, Globe } from "lucide-react";
+import { Paperclip, Plus, ArrowUp, DatabaseZap, Globe,CircleCheck } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Flow from "./Flow";
 import Banner from "./Banner";
+gsap.registerPlugin(ScrollTrigger);
+
+
+
 
 const HomePage = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [displayedText, setDisplayedText] = useState("");
   const [currentQueryIndex, setCurrentQueryIndex] = useState(0);
   const textareaRef = useRef(null);
+  const featuresRef = useRef(null);
+
+  useEffect(() => {
+    const featureElements = featuresRef.current.querySelectorAll(".feature-item");
+
+    gsap.fromTo(
+      featureElements,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: featuresRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
+
+
 
   const searchQueries = [
     "Match portfolio with DevOps engineer requirements",
@@ -294,37 +325,50 @@ const HomePage = () => {
 
 
       {/* Features Section */}
-      <section className="py-12 px-6 md:py-20 md:px-8 bg-black">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8">
-          Key Features
-        </h2>
-        <div className="grid gap-8 md:grid-cols-3 text-center">
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-2">
+ {/* Features Section */}
+ <section
+      className="py-12 px-6 md:py-20 md:px-8 bg-black"
+      ref={featuresRef}
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-8">
+        Key Features
+      </h2>
+      <div className="grid gap-8 md:grid-cols-3 sm:text-center text-left">
+        <div className="feature-item">
+          <div className="flex items-center mb-2 justify-start sm:justify-center">
+            <CircleCheck className="text-green-400 mr-2" />
+            <h3 className="text-xl font-semibold text-white">
               AI-Powered Emails
             </h3>
-            <p className="text-gray-400">
-              Generate personalized cold emails using Llama 3.1 and LangChain for efficient outreach.
-            </p>
           </div>
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-2">
+          <p className="text-gray-400 sm:text-center text-left">
+            Generate personalized cold emails using Llama 3.1 and LangChain for efficient outreach.
+          </p>
+        </div>
+        <div className="feature-item">
+          <div className="flex items-center mb-2 justify-start sm:justify-center">
+            <CircleCheck className="text-green-400 mr-2" />
+            <h3 className="text-xl font-semibold text-white">
               Smart Data Integration
             </h3>
-            <p className="text-gray-400">
-              Leverage ChromaDB to connect job requirements with your portfolio for tailored responses.
-            </p>
           </div>
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-2">
+          <p className="text-gray-400 sm:text-center text-left">
+            Leverage ChromaDB to connect job requirements with your portfolio for tailored responses.
+          </p>
+        </div>
+        <div className="feature-item">
+          <div className="flex items-center mb-2 justify-start sm:justify-center">
+            <CircleCheck className="text-green-400 mr-2" />
+            <h3 className="text-xl font-semibold text-white">
               Real-Time Insights
             </h3>
-            <p className="text-gray-400">
-              Automatically scrape job postings to craft dynamic, targeted emails.
-            </p>
           </div>
+          <p className="text-gray-400 sm:text-center text-left">
+            Automatically scrape job postings to craft dynamic, targeted emails.
+          </p>
         </div>
-      </section>
+      </div>
+    </section>
  <Flow/>
  <Banner/>
 
