@@ -44,7 +44,7 @@ const TalksTable = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-4xl mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-6">See our talks</h1>
+        <h1 className="text-3xl font-bold mb-6">Why Open-Source LLMs</h1>
         <table className="w-full text-left border-collapse">
           <thead>
             <tr>
@@ -54,37 +54,52 @@ const TalksTable = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="border-b border-gray-300 py-2 line-through">A new way of thinking</td>
-              <td className="border-b border-gray-300 py-2 line-through">October 10th, 2023</td>
-              <td className="border-b border-gray-300 py-2 line-through">In House</td>
-            </tr>
-            <tr>
-              <td className="border-b border-gray-300 py-2">Technology in 2024</td>
-              <td className="border-b border-gray-300 py-2">September 3rd, 2023</td>
-              <td className="border-b border-gray-300 py-2">Beckenstreet 21</td>
-            </tr>
-            <tr>
-              <td className="border-b border-gray-300 py-2">The digital era — what is it?</td>
-              <td className="border-b border-gray-300 py-2">September 4th, 2023</td>
-              <td className="border-b border-gray-300 py-2">Beckenstreet 21</td>
-            </tr>
-            <tr>
-              <td className="border-b border-gray-300 py-2">Building brands and products</td>
-              <td className="border-b border-gray-300 py-2">November 21st, 2023</td>
-              <td className="border-b border-gray-300 py-2">In House</td>
-            </tr>
-            <tr>
-              <td className="border-b border-gray-300 py-2">Ecommerce 101</td>
-              <td className="border-b border-gray-300 py-2">January 7th, 2024</td>
-              <td className="border-b border-gray-300 py-2">Hillway Drive 28</td>
-            </tr>
-            <tr>
-              <td className="border-b border-gray-300 py-2">Crafting digital experiences</td>
-              <td className="border-b border-gray-300 py-2">January 28th, 2024</td>
-              <td className="border-b border-gray-300 py-2">Taunton Fairway 4</td>
-            </tr>
-          </tbody>
+          <tr>
+      <td className="border-b border-gray-300 py-2 line-through">Feature</td>
+      <td className="border-b border-gray-300 py-2 line-through">Open-Source LLMs</td>
+      <td className="border-b border-gray-300 py-2 line-through">Proprietary LLMs</td>
+    </tr>
+    <tr>
+      <td className="border-b border-gray-300 py-2">Availability</td>
+      <td className="border-b border-gray-300 py-2">Free or low-cost with open licensing</td>
+      <td className="border-b border-gray-300 py-2">Proprietary, subscription-based</td>
+    </tr>
+    <tr>
+      <td className="border-b border-gray-300 py-2">Customizability</td>
+      <td className="border-b border-gray-300 py-2">High; can be fine-tuned or modified</td>
+      <td className="border-b border-gray-300 py-2">Limited; customization only via API</td>
+    </tr>
+    <tr>
+      <td className="border-b border-gray-300 py-2">Performance</td>
+      <td className="border-b border-gray-300 py-2">Competitive but varies by model</td>
+      <td className="border-b border-gray-300 py-2">Consistently strong and optimized</td>
+    </tr>
+    <tr>
+      <td className="border-b border-gray-300 py-2">Data Transparency</td>
+      <td className="border-b border-gray-300 py-2">Open, often publicly available datasets</td>
+      <td className="border-b border-gray-300 py-2">Opaque, proprietary datasets</td>
+    </tr>
+    <tr>
+      <td className="border-b border-gray-300 py-2">Ease of Use</td>
+      <td className="border-b border-gray-300 py-2">Requires technical setup and hosting</td>
+      <td className="border-b border-gray-300 py-2">Easy; hosted solutions available</td>
+    </tr>
+    <tr>
+      <td className="border-b border-gray-300 py-2">Community Support</td>
+      <td className="border-b border-gray-300 py-2">Strong open-source communities</td>
+      <td className="border-b border-gray-300 py-2">Company support and limited forums</td>
+    </tr>
+    <tr>
+      <td className="border-b border-gray-300 py-2">Cost</td>
+      <td className="border-b border-gray-300 py-2">Low cost; free options available</td>
+      <td className="border-b border-gray-300 py-2">High; pay-per-use or subscription</td>
+    </tr>
+    <tr>
+      <td className="border-b border-gray-300 py-2">Security</td>
+      <td className="border-b border-gray-300 py-2">Local data hosting possible</td>
+      <td className="border-b border-gray-300 py-2">Data processed on external servers</td>
+    </tr>
+  </tbody>
         </table>
         <div className="mt-6">
           <button className="px-4 py-2 bg-black text-white rounded-full flex items-center">
