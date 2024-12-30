@@ -317,7 +317,7 @@ const HomePage = () => {
 
  <Tasktable/>
 
- {/* <Banner/> */}
+ <Banner/>
 
       {/* Footer */}
       <footer className="bg-black text-white py-8 px-6 md:px-12">
