@@ -60,14 +60,24 @@ const TalksTable = () => {
       <td className="border-b border-gray-300 py-2 line-through">Proprietary LLMs</td>
     </tr>
     <tr>
+      <td className="border-b border-gray-300 py-2">Cost</td>
+      <td className="border-b border-gray-300 py-2">free</td>
+      <td className="border-b border-gray-300 py-2">pay-per-use</td>
+    </tr>
+    <tr>
+      <td className="border-b border-gray-300 py-2">Security</td>
+      <td className="border-b border-gray-300 py-2">Local data hosting possible</td>
+      <td className="border-b border-gray-300 py-2">Data processed on external servers</td>
+    </tr>
+    <tr>
       <td className="border-b border-gray-300 py-2">Availability</td>
-      <td className="border-b border-gray-300 py-2">Free or low-cost with open licensing</td>
-      <td className="border-b border-gray-300 py-2">Proprietary, subscription-based</td>
+      <td className="border-b border-gray-300 py-2">Free licensing</td>
+      <td className="border-b border-gray-300 py-2">subscription-based</td>
     </tr>
     <tr>
       <td className="border-b border-gray-300 py-2">Customizability</td>
-      <td className="border-b border-gray-300 py-2">High; can be fine-tuned or modified</td>
-      <td className="border-b border-gray-300 py-2">Limited; customization only via API</td>
+      <td className="border-b border-gray-300 py-2">High</td>
+      <td className="border-b border-gray-300 py-2">Limited</td>
     </tr>
     <tr>
       <td className="border-b border-gray-300 py-2">Performance</td>
@@ -76,29 +86,20 @@ const TalksTable = () => {
     </tr>
     <tr>
       <td className="border-b border-gray-300 py-2">Data Transparency</td>
-      <td className="border-b border-gray-300 py-2">Open, often publicly available datasets</td>
-      <td className="border-b border-gray-300 py-2">Opaque, proprietary datasets</td>
+      <td className="border-b border-gray-300 py-2">Open</td>
+      <td className="border-b border-gray-300 py-2">Opaque</td>
     </tr>
     <tr>
       <td className="border-b border-gray-300 py-2">Ease of Use</td>
-      <td className="border-b border-gray-300 py-2">Requires technical setup and hosting</td>
-      <td className="border-b border-gray-300 py-2">Easy; hosted solutions available</td>
+      <td className="border-b border-gray-300 py-2">Requires technical setup</td>
+      <td className="border-b border-gray-300 py-2">Easy</td>
     </tr>
     <tr>
       <td className="border-b border-gray-300 py-2">Community Support</td>
       <td className="border-b border-gray-300 py-2">Strong open-source communities</td>
-      <td className="border-b border-gray-300 py-2">Company support and limited forums</td>
+      <td className="border-b border-gray-300 py-2">Company support</td>
     </tr>
-    <tr>
-      <td className="border-b border-gray-300 py-2">Cost</td>
-      <td className="border-b border-gray-300 py-2">Low cost; free options available</td>
-      <td className="border-b border-gray-300 py-2">High; pay-per-use or subscription</td>
-    </tr>
-    <tr>
-      <td className="border-b border-gray-300 py-2">Security</td>
-      <td className="border-b border-gray-300 py-2">Local data hosting possible</td>
-      <td className="border-b border-gray-300 py-2">Data processed on external servers</td>
-    </tr>
+
   </tbody>
         </table>
         <div className="mt-6">
