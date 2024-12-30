@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Paperclip, Plus, ArrowUp, DatabaseZap, Globe,CircleCheck } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Flow from "./Flow";
@@ -22,7 +23,7 @@ const HomePage = () => {
   
 
 
-
+  const navigate = useNavigate();
 
 
   const searchQueries = [
@@ -191,7 +192,8 @@ const HomePage = () => {
             Docs
           </a>
           <div className="mt-4">
-            <button className="block w-full border border-gray-700 text-gray-700 px-4 py-2 rounded mb-2 hover:bg-gray-100 transition">
+            <button className="block w-full border border-gray-700 text-gray-700 px-4 py-2 rounded mb-2 hover:bg-gray-100 transition"
+             onClick={() => navigate("/chat")}>
               Sign in
             </button>
           </div>
@@ -296,11 +298,13 @@ const HomePage = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
-        <button className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black text-white rounded-lg hover:bg-black-700 transition text-base sm:text-lg font-medium">
+        <button className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black text-white rounded-lg hover:bg-black-700 transition text-base sm:text-lg font-medium"
+         onClick={() => navigate("/chat")}>
           Get Started Free
         </button>
-        <button className="w-full sm:w-auto px-6 sm:px-8 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition text-base sm:text-lg font-medium">
-          View Demo
+        <button className="w-full sm:w-auto px-6 sm:px-8 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition text-base sm:text-lg font-medium"
+         onClick={() => navigate("/anc")}> 
+          How to use
         </button>
       </div>
     </div>
