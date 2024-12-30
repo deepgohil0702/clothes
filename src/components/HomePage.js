@@ -6,6 +6,7 @@ import Flow from "./Flow";
 import Banner from "./Banner";
 import Section from "./Section";
 import Tasktable from "./Tasktable";
+
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -307,7 +308,9 @@ const HomePage = () => {
 
 
 <Section/>
+
  <Flow/>
+
  <Tasktable/>
 
  <Banner/>
