@@ -6,6 +6,8 @@ import Flow from "./Flow";
 import Banner from "./Banner";
 import Section from "./Section";
 import Tasktable from "./Tasktable";
+import Textscrlrevl from "./Textscrlrevl";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -309,11 +311,13 @@ const HomePage = () => {
 
 <Section/>
 
+<Textscrlrevl/>
+
  <Flow/>
 
  <Tasktable/>
 
- <Banner/>
+ {/* <Banner/> */}
 
       {/* Footer */}
       <footer className="bg-black text-white py-8 px-6 md:px-12">

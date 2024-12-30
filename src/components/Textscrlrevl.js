@@ -1,12 +1,12 @@
-// src/ScrollSection.js
+
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Register ScrollTrigger with GSAP
+
 gsap.registerPlugin(ScrollTrigger);
 
-const ScrollSection = () => {
+const Textscrlrevl = () => {
   useEffect(() => {
     // GSAP ScrollTrigger Animations
     gsap.fromTo(
@@ -43,4 +43,4 @@ const ScrollSection = () => {
   );
 };
 
-export default ScrollSection;
+export default Textscrlrevl;
