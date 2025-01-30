@@ -40,6 +40,7 @@ import ChatAisection from "./components/ChatAisection";
 import ProtectedRoute from "./components/ProtectedRoute";
 import SearchBar from "./components/SearchBar";
 import Announcement from "./components/Announcement";
+import FashionStore from "./components/FashionStore";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -48,7 +49,7 @@ function App() {
     <Router>
       <Routes>
         {/* Home Page */}
-        <Route path="/" element={<HomePage isAuthenticated={isAuthenticated} />} />
+        <Route path="/" element={<FashionStore/>} />
 
         {/* Login Page */}
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
