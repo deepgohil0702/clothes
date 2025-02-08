@@ -51,23 +51,7 @@ function App() {
         {/* Home Page */}
         <Route path="/" element={<FashionStore/>} />
 
-        {/* Login Page */}
-        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/home" element={<HomeTab />} />
-        <Route path="/aichat" element={<ChatAisection />} />
-        <Route path="/search" element={<SearchBar />} />
-        <Route path="/anc" element={<Announcement />} />
-
-
-        {/* Protected Chat Route */}
-        <Route
-          path="/chat"
-          element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Chat />
-            </ProtectedRoute>
-          }
-        />
+    
       </Routes>
     </Router>
   );

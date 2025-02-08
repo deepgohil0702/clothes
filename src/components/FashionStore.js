@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { FiShoppingCart, FiMenu, FiFacebook, FiInstagram, FiTwitter } from 'react-icons/fi';
+import Footer from "./Footer";
+import HappyCustomers from "./HappyCustomers";
 
 const FashionStore = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -10,35 +12,37 @@ const FashionStore = () => {
   return (
     <div className="font-sans">
       {/* Header */}
-      <header className="fixed w-full top-0 left-0 z-50 bg-gray-100">
-        <nav className="flex justify-between items-center p-4 max-w-6xl mx-auto">
-          <a href="#home" className="font-bold text-xl">SARA</a>
-          
-          <div className={`md:flex ${showMenu ? 'absolute right-0 top-full bg-white w-4/5 p-8 shadow-lg md:static md:w-auto md:shadow-none' : 'hidden'}`}>
-            <ul className="md:flex md:space-x-8">
-              {['home', 'collection 1', 'collection 2', 'collection 3', 'collection 4'].map((item) => (
-                <li key={item}>
-                  <a 
-                    href={`#${item}`} 
-                    className={`block py-2 capitalize ${activeSection === item ? 'text-red-600' : 'text-gray-800'} hover:text-red-500`}
-                    onClick={() => {
-                      setActiveSection(item);
-                      setShowMenu(false);
-                    }}
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
+  
+      <header className="bg-white shadow">
+        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+          <div className="flex items-center">
+            <div className="text-xl font-bold">beyondXL</div>
           </div>
-
           <div className="flex items-center space-x-4">
-            <FiShoppingCart className="text-2xl" />
-            <FiMenu className="text-2xl md:hidden" onClick={toggleMenu} />
+            <a href="#" className="text-gray-700 hover:text-gray-900">Track Order</a>
+            <a href="#" className="text-gray-700 hover:text-gray-900">Contact Us</a>
+            <a href="#" className="text-gray-700 hover:text-gray-900">Login</a>
           </div>
-        </nav>
+        </div>
       </header>
+      
+      <nav className="bg-gray-100 shadow">
+  <div className="container mx-auto px-4 py-2 flex items-center justify-end">
+
+    <div className="flex space-x-4 items-center">
+      <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 1</a>
+      <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 2</a>
+      <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 3</a>
+      <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 4</a>
+      <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Sale</a>
+    </div>
+    <div className="flex items-center space-x-3 ml-4">
+      <input type="text" placeholder="Search for products" className="px-3 py-1 border rounded" />
+      <button className="text-gray-700 hover:text-gray-900"><i className="fas fa-heart"></i></button>
+      <button className="text-gray-700 hover:text-gray-900"><i className="fas fa-shopping-bag"></i></button>
+    </div>
+  </div>
+</nav>
 
       {/* Main Content */}
       <main className="mt-16">
@@ -59,9 +63,14 @@ const FashionStore = () => {
             </div>
           </div>
         </section>
-
+        <div class="text-center mt-5">
+        <h1 class="text-2xl font-semibold text-gray-900">Our Collections</h1>
+        <div class="mt-1">
+            <div class="inline-block w-9 h-1 bg-red-500"></div>
+        </div>
+    </div>
         {/* Collection Section */}
-        <section className="py-20">
+        <section className="py-5">
           <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8">
             {[['Men', 'img/backpackMan.png'], ['Women', 'img/backpackWoman.png'],['Men', 'img/backpackMan.png'], ['Women', 'img/backpackWoman.png']].map(([gender, img], idx) => (
               <div key={gender} className={`flex ${idx % 2 ? 'flex-row-reverse' : ''} bg-gray-100 p-8 hover:-translate-y-2 transition`}>
@@ -104,11 +113,8 @@ const FashionStore = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-12">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
-          {/* Footer content */}
-        </div>
-      </footer>
+      <HappyCustomers/>
+     <Footer/>
     </div>
   );
 };
