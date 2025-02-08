@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiShoppingCart, FiMenu, FiFacebook, FiInstagram, FiTwitter } from 'react-icons/fi';
+import { FiShoppingCart, FiMenu, FiX, FiHeart, FiShoppingBag } from 'react-icons/fi';
 import Footer from "./Footer";
 import HappyCustomers from "./HappyCustomers";
 
@@ -11,38 +11,97 @@ const FashionStore = () => {
 
   return (
     <div className="font-sans">
+      {/* Mobile Menu */}
+      <div className={`fixed inset-0 z-50 bg-white transform ${showMenu ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:hidden`}>
+        <div className="flex justify-between items-center p-4 border-b">
+          <div className="text-xl font-bold">beyondXL</div>
+          <button onClick={toggleMenu} className="text-gray-700">
+            <FiX size={24} />
+          </button>
+        </div>
+        <div className="p-4 overflow-y-auto h-[calc(100vh-64px)]">
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <a href="#" onClick={toggleMenu} className="block text-gray-700 hover:text-gray-900">Track Order</a>
+              <a href="#" onClick={toggleMenu} className="block text-gray-700 hover:text-gray-900">Store Locator</a>
+              <a href="#" onClick={toggleMenu} className="block text-gray-700 hover:text-gray-900">Contact Us</a>
+              <a href="#" onClick={toggleMenu} className="block text-gray-700 hover:text-gray-900">Login</a>
+            </div>
+            
+            <div className="space-y-4 border-t pt-4">
+              <a href="#" onClick={toggleMenu} className="block text-gray-700 hover:text-gray-900">Collection 1</a>
+              <a href="#" onClick={toggleMenu} className="block text-gray-700 hover:text-gray-900">Collection 2</a>
+              <a href="#" onClick={toggleMenu} className="block text-gray-700 hover:text-gray-900">Collection 3</a>
+              <a href="#" onClick={toggleMenu} className="block text-gray-700 hover:text-gray-900">Collection 4</a>
+              <a href="#" onClick={toggleMenu} className="block text-gray-700 hover:text-gray-900">Sale</a>
+            </div>
+
+            <div className="space-y-4 border-t pt-4">
+              <input 
+                type="text" 
+                placeholder="Search for products" 
+                className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-red-500"
+              />
+              <div className="flex space-x-4">
+                <button className="text-gray-700 hover:text-gray-900">
+                  <FiHeart size={20} />
+                </button>
+                <button className="text-gray-700 hover:text-gray-900">
+                  <FiShoppingBag size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
-  
       <header className="bg-white shadow">
         <div className="container mx-auto px-4 py-2 flex justify-between items-center">
           <div className="flex items-center">
             <div className="text-xl font-bold">beyondXL</div>
           </div>
-          <div className="flex items-center space-x-4">
+          
+          {/* Desktop Top Links */}
+          <div className="hidden md:flex items-center space-x-4">
             <a href="#" className="text-gray-700 hover:text-gray-900">Track Order</a>
+            <a href="#" className="text-gray-700 hover:text-gray-900">Store Locator</a>
             <a href="#" className="text-gray-700 hover:text-gray-900">Contact Us</a>
             <a href="#" className="text-gray-700 hover:text-gray-900">Login</a>
           </div>
+
+          {/* Mobile Hamburger */}
+          <button onClick={toggleMenu} className="md:hidden text-gray-700">
+            <FiMenu size={24} />
+          </button>
         </div>
       </header>
-      
-      <nav className="bg-gray-100 shadow">
-  <div className="container mx-auto px-4 py-2 flex items-center justify-end">
 
-    <div className="flex space-x-4 items-center">
-      <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 1</a>
-      <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 2</a>
-      <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 3</a>
-      <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 4</a>
-      <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Sale</a>
-    </div>
-    <div className="flex items-center space-x-3 ml-4">
-      <input type="text" placeholder="Search for products" className="px-3 py-1 border rounded" />
-      <button className="text-gray-700 hover:text-gray-900"><i className="fas fa-heart"></i></button>
-      <button className="text-gray-700 hover:text-gray-900"><i className="fas fa-shopping-bag"></i></button>
-    </div>
-  </div>
-</nav>
+      {/* Main Navigation */}
+      <nav className="bg-gray-100 shadow hidden md:block">
+        <div className="container mx-auto px-4 py-2 flex items-center justify-between">
+          <div className="flex space-x-4 items-center">
+            <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 1</a>
+            <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 2</a>
+            <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 3</a>
+            <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Collection 4</a>
+            <a href="#" className="text-sm text-gray-700 hover:text-gray-900">Sale</a>
+          </div>
+          <div className="flex items-center space-x-3">
+            <input 
+              type="text" 
+              placeholder="Search for products" 
+              className="px-3 py-1 border rounded focus:outline-none focus:ring-2 focus:ring-red-500"
+            />
+            <button className="text-gray-700 hover:text-gray-900">
+              <FiHeart size={20} />
+            </button>
+            <button className="text-gray-700 hover:text-gray-900">
+              <FiShoppingBag size={20} />
+            </button>
+          </div>
+        </div>
+      </nav>
 
       {/* Main Content */}
       <main className="mt-16">
@@ -63,12 +122,14 @@ const FashionStore = () => {
             </div>
           </div>
         </section>
-        <div class="text-center mt-5">
-        <h1 class="text-2xl font-semibold text-gray-900">Our Collections</h1>
-        <div class="mt-1">
-            <div class="inline-block w-9 h-1 bg-red-500"></div>
+
+        <div className="text-center mt-5">
+          <h1 className="text-2xl font-semibold text-gray-900">Our Collections</h1>
+          <div className="mt-1">
+            <div className="inline-block w-9 h-1 bg-red-500"></div>
+          </div>
         </div>
-    </div>
+
         {/* Collection Section */}
         <section className="py-5">
           <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8">
@@ -108,13 +169,11 @@ const FashionStore = () => {
           </div>
         </section>
 
-        {/* Other sections (Offer, New Arrivals, Newsletter, Sponsors) follow similar patterns */}
-
+        {/* Other sections */}
       </main>
 
-      {/* Footer */}
       <HappyCustomers/>
-     <Footer/>
+      <Footer/>
     </div>
   );
 };
