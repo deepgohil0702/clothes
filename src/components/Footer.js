@@ -58,7 +58,7 @@ const Footer = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto py-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+      <div className="container mx-auto p-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
         {/* Company Links */}
         <div>
           <h3 className="font-bold">COMPANY</h3>

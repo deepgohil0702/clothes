@@ -40,7 +40,9 @@ import ChatAisection from "./components/ChatAisection";
 import ProtectedRoute from "./components/ProtectedRoute";
 import SearchBar from "./components/SearchBar";
 import Announcement from "./components/Announcement";
+import PDFTextExtractor from "./components/PDFTextExtractor";
 import FashionStore from "./components/FashionStore";
+import ProductPage from "./components/ProductPage";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -50,6 +52,8 @@ function App() {
       <Routes>
         {/* Home Page */}
         <Route path="/" element={<FashionStore/>} />
+        <Route path="/pdftext" element={<PDFTextExtractor/>} />
+        <Route path="/product" element={<ProductPage/>} />
 
     
       </Routes>
