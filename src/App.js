@@ -43,6 +43,8 @@ import Announcement from "./components/Announcement";
 import PDFTextExtractor from "./components/PDFTextExtractor";
 import FashionStore from "./components/FashionStore";
 import ProductPage from "./components/ProductPage";
+import ShoppingBag from "./components/ShoppingBag";
+import ProductListing from "./components/ProductListing";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -54,6 +56,8 @@ function App() {
         <Route path="/" element={<FashionStore/>} />
         <Route path="/pdftext" element={<PDFTextExtractor/>} />
         <Route path="/product" element={<ProductPage/>} />
+        <Route path="/bag" element={<ShoppingBag/>} />
+        <Route path="/listing" element={<ProductListing/>} />
 
     
       </Routes>

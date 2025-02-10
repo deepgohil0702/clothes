@@ -1,0 +1,17 @@
+{
+    "storeName": "beyondXL",
+    "shippingMessage": "Hurray! Free Shipping on this order.",
+    "deliveryCharge": 100.00,
+    "paymentOption": "or 3 monthly payments of ₹666 with beyondXL Pay Later",
+    "items": [
+      {
+        "name": "Grey Arizono Sweatpant",
+        "color": "Grey",
+        "size": "28",
+        "sku": "125124",
+        "price": 999.00,
+        "quantity": 2,
+        "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3"
+      }
+    ]
+  }
