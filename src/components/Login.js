@@ -7,16 +7,29 @@ const Login = ({ setIsAuthenticated }) => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Fixed login credentials
-    if (email === "deep@gmail.com" && password === "123") {
-      setError("");
-      setIsAuthenticated(true); // Set authentication state
-      navigate("/chat"); // Redirect to chat route
-    } else {
-      setError("Invalid email or password.");
+    try {
+      const response = await fetch("http://localhost:8000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setError("");
+        setIsAuthenticated(true); // Set authentication state
+        navigate("/chat"); // Redirect to chat route
+      } else {
+        const errorData = await response.json();
+        setError(errorData.detail || "Invalid email or password.");
+      }
+    } catch (error) {
+      setError("An error occurred. Please try again later.");
     }
   };
 

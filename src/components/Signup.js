@@ -6,17 +6,35 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      setError("Passwords do not match");
       return;
     }
-    // Mock signup logic
-    console.log("Signing up with", { email, password });
-    navigate("/login");
+
+    try {
+      const response = await fetch("http://localhost:8000/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        setError("");
+        navigate("/login");
+      } else {
+        const errorData = await response.json();
+        setError(errorData.detail || "Signup failed. Please try again.");
+      }
+    } catch (error) {
+      setError("An error occurred. Please try again later.");
+    }
   };
 
   return (
@@ -44,6 +62,7 @@ const Signup = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
+        {error && <p className="error-message">{error}</p>}
         <button type="submit" className="btn">
           Signup
         </button>
