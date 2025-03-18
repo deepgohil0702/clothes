@@ -1,0 +1,33 @@
+export const products = [
+    {
+      id: 1,
+      name: "Blue Checked Full Sleeves Regular Fit Shirt",
+      sku: "1261121",
+      price: 899,
+      originalPrice: 999,
+      discount: "10% OFF",
+      sizes: ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      images: ["/api/placeholder/400/500"],
+      category: "Shirts",
+      color: "Blue",
+      pattern: "Checked",
+      material: "Cotton Blend",
+      sleeveLength: "Full Sleeves",
+      fit: "Regular Fit",
+    },
+    {
+      id: 2,
+      name: "Grey Arizono Sweatpant",
+      sku: "125124",
+      price: 999,
+      originalPrice: 1299,
+      discount: "23% OFF",
+      sizes: ["28", "30", "32", "34", "36"],
+      images: ["/api/placeholder/400/500"],
+      category: "Pants",
+      color: "Grey",
+      material: "Cotton",
+      fit: "Regular Fit",
+    },
+    // Add more products as needed...
+  ];
