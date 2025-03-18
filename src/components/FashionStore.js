@@ -15,7 +15,7 @@ const FashionStore = () => {
 <Topbar/>
 
       {/* Main Content */}
-      <main className="mt-16">
+      <main >
         {/* Home Section */}
         <section id="home" className="bg-gray-100 min-h-screen flex items-center">
           <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
