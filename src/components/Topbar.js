@@ -43,7 +43,7 @@ const Topbar = () => {
       </div>
 
       {/* Desktop Navigation */}
-      <header className="bg-white shadow">
+      <header className="bg-white">
         <nav className="bg-gray-100 shadow hidden md:block">
           <div className="container mx-auto px-1 py-0.5 flex items-center justify-end">
             <div className="flex space-x-2 items-center">

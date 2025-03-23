@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { 
   Heart, 
   Share2, 
@@ -58,6 +58,24 @@ const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [pincode, setPincode] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Only apply sticky behavior on mobile devices
+      if (window.innerWidth < 768) {
+        setIsScrolled(window.scrollY > 200);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleSizeSelect = (size) => {
     setSelectedSize(size);
@@ -134,52 +152,53 @@ const ProductPage = () => {
           </p>
 
           <div className="mb-4">
-            <p className="font-semibold mb-2">Select Size</p>
-            <div className="flex flex-wrap gap-2">
-              {productData.sizes.map(size => (
-                <button
-                  key={size}
-                  onClick={() => handleSizeSelect(size)}
-                  className={`px-3 py-1 border rounded text-sm ${
-                    selectedSize === size 
-                      ? 'bg-red-500 text-white' 
-                      : 'bg-white text-gray-700'
-                  }`}
-                >
-                  {size}
-                </button>
-              ))}
+              <p className="font-semibold mb-2">Select Size</p>
+              <div className="flex flex-wrap gap-2">
+                {productData.sizes.map(size => (
+                  <button
+                    key={size}
+                    onClick={() => handleSizeSelect(size)}
+                    className={`px-3 py-1 border rounded text-sm ${
+                      selectedSize === size 
+                        ? 'bg-red-500 text-white' 
+                        : 'bg-white text-gray-700'
+                    }`}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className="flex items-center mb-4">
-            <button 
-              onClick={() => handleQuantityChange(-1)} 
-              className="px-3 py-1 border rounded"
-            >
-              -
-            </button>
-            <span className="px-4">{quantity}</span>
-            <button 
-              onClick={() => handleQuantityChange(1)} 
-              className="px-3 py-1 border rounded"
-            >
-              +
-            </button>
-          </div>
+            <div className="flex items-center mb-4">
+              <button 
+                onClick={() => handleQuantityChange(-1)} 
+                className="px-3 py-1 border rounded"
+              >
+                -
+              </button>
+              <span className="px-4">{quantity}</span>
+              <button 
+                onClick={() => handleQuantityChange(1)} 
+                className="px-3 py-1 border rounded"
+              >
+                +
+              </button>
+            </div>
 
-          <p className="text-xs text-gray-600 mb-4">
-            {productData.modelInfo}
-          </p>
+            <p className="text-xs text-gray-600 mb-4">
+              {productData.modelInfo}
+            </p>
 
-          <div className="flex space-x-4">
-            <button className="flex-1 bg-red-500 text-white py-3 rounded hover:bg-red-600">
-              Add to Cart
-            </button>
-            <button className="p-3 border rounded">
-              <Heart className="w-6 h-6 text-red-500" />
-            </button>
-          </div>
+            {/* The Add to Cart buttons - visible only on desktop */}
+            <div className="hidden md:flex space-x-4">
+              <button className="flex-1 bg-red-500 text-white py-3 rounded hover:bg-red-600">
+                Add to Cart
+              </button>
+              <button className="p-3 border rounded">
+                <Heart className="w-6 h-6 text-red-500" />
+              </button>
+            </div>
 
           <div className="mt-4">
             <div className="flex items-center mb-2">
@@ -290,6 +309,17 @@ const ProductPage = () => {
       </div>
       
     </div>
+
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white shadow-lg border-t p-3">
+        <div className="flex space-x-4 max-w-7xl mx-auto">
+          <button className="flex-1 bg-red-500 text-white py-3 rounded hover:bg-red-600 text-sm font-semibold">
+            Add to Cart
+          </button>
+          <button className="p-3 border rounded bg-white">
+            <Heart className="w-6 h-6 text-red-500" />
+          </button>
+        </div>
+      </div>
     <Footer/>
     </>
   );
